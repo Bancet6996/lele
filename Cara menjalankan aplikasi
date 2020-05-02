@@ -1,0 +1,14 @@
+1. Jalankan perintah berikut di cmd :
+    composer install
+2. Ubah file .env.example menjadi .env
+3. Buat database dengan SQL kemudian sesuaikan nama database dengan DB_DATABASE dari .env
+4. Jalankan perintah :
+    1. php artisan key:generate
+    2. php artisan migrate --seed
+    3. php artisan serve
+5. Buka browser, lalu tuju link berikut :
+    localhost:8000
+6. Akun petugas sudah disediakan dari database
+    Email    : petugas@lele.id
+    Password : petugas123
+7. Akun dengan aktor yang lain dapat dilihat dari database di tabel users
