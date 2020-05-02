@@ -129,16 +129,15 @@ class BarangController extends Controller
     }
 
     public function getBarang(){
-        $data = Barang::latest()->get();
+        $data = Barang::orderBy('id', 'desc')->get();
         return Datatables::of($data)
-                ->addIndexColumn()
-                ->addColumn('action', function($row){
-
-                       $btn = '<a href="javascript:void(0)" class="edit btn btn-primary btn-sm">View</a>';
-    
-                        return $btn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
+            ->addIndexColumn()
+            ->addColumn('action', function($data){
+                $button = '<a href="barang/ubah/'. $data->id. '" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="top" title="Edit"><i class="far fa-edit"></i></a>';
+                $button .= '<button type="button" data-tooltip="true" data-placement="top" title="Hapus" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete-modal'. $data->id .'"><i class="far fa-trash-alt"></i></button>';
+                return $button;
+            })
+            ->rawColumns(['action'])
+            ->make(true);
     }
 }
