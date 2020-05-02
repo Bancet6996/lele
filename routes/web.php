@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/lelangan/{id}', 'BarangController@detail');
+Route::get('/get-barang', 'BarangController@getBarang');
 
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/dashboard', 'IndexController@indexAdmin');
@@ -29,7 +30,6 @@ Route::middleware(['auth', 'admin'])->group(function(){
     Route::patch('/barang/{id}', 'BarangController@simpan');
     Route::delete('/barang/{id}/hapus', 'BarangController@hapus');
     Route::get('/hasil', 'BarangController@hasil');
-    Route::get('/get-barang', 'BarangController@getBarang');
     Route::post('/lelangan/{id}/jawab', 'DiskusiController@jawab');
     Route::patch('/lelangan/{id}/jawab/ubah', 'DiskusiController@ubahJawaban');
     Route::delete('/lelangan/{id}/jawab/hapus', 'DiskusiController@hapusJawaban');

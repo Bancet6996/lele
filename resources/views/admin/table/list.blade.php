@@ -85,7 +85,7 @@
                                     <a href="https://datatables.net/">Datatables</a></h6> --}}
                                 <div class="table-responsive">
                                     @if (Request::path() === 'barang')
-                                        <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                        <table id="zero_config1" class="table table-striped table-bordered no-wrap">
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -126,7 +126,7 @@
                                                     @if (auth()->user()->level === 'petugas')
                                                         <tr>
                                                             <td style="vertical-align: middle">{{ isset($i) ? ++ $i : $i = 1 }}</td>
-                                                            <td style="vertical-align: middle; width: 20%"><img src="{{ asset('gambar_barang/'. $brg->gambar_barang) }}" alt="{{ $brg->gambar_barang }}" style="width: 28%;" ></td>
+                                                            <td style="vertical-align: middle; width: 20%"><img src="{{ $brg->gambar_barang }}" alt="{{ $brg->gambar_barang }}" style="width: 28%;" ></td>
                                                             <td style="vertical-align: middle">{{ $brg->nama_barang }}</td>
                                                             <td style="vertical-align: middle">{{ $brg->harga_awal }}</td>
                                                             <td style="vertical-align: middle">{{ $brg->name }}</td>
@@ -153,7 +153,7 @@
                                                     @else
                                                         <tr>
                                                             <td style="vertical-align: middle">{{ isset($i) ? ++ $i : $i = 1 }}</td>
-                                                            <td style="vertical-align: middle"><img src="{{ asset('gambar_barang/'. $brg->gambar_barang) }}" alt="{{ $brg->gambar_barang }}" style="width: 28%;" ></td>
+                                                            <td style="vertical-align: middle"><img src="{{ $brg->gambar_barang }}" alt="{{ $brg->gambar_barang }}" style="width: 28%;" ></td>
                                                             <td style="vertical-align: middle">{{ $brg->nama_barang }}</td>
                                                             <td style="vertical-align: middle">{{ $brg->harga_awal }}</td>
                                                             <td style="vertical-align: middle; text-align: center">
@@ -456,6 +456,23 @@
         $(function() {
             $('[data-tooltip="true"]').tooltip();
         });
+        // $('#zero_config1').DataTable( {
+        //     processing: true,
+        //     serverSide: true,
+        //     ajax: '/get-barang',
+        //     columns: [
+        //         {data: 'DT_RowIndex'},
+        //         {data: 'gambar_barang',
+        //          render: function(data){
+        //             return '<img width="35%" src="'+data+'"/>';
+        //          }
+        //         },
+        //         {data: 'nama_barang'},
+        //         {data: 'harga_awal'},
+        //         {data: 'id_user'},
+        //         {data: 'action', orderable: false, searchable: false}
+        //     ]
+        // } );
     </script>
 </body>
 
